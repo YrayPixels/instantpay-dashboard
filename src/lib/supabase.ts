@@ -64,7 +64,7 @@ export const apiKeyQueries = {
   createApiKey: async (keyValue: string) => {
     const { data, error } = await supabase
       .from('api_keys')
-      .insert({ key_value: keyValue })
+      .insert({ key_value: keyValue, user_id: await getUserId() })
       .select()
       .single()
 
@@ -79,6 +79,7 @@ export const apiKeyQueries = {
       .eq('id', id)
 
     if (error) throw error
+    return true;
   }
 }
 // Webhook queries

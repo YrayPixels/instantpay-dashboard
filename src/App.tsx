@@ -48,11 +48,31 @@ const App = () => (
               }
             />
             <Route path="/login" element={<Login />} />
-            <Route path="/api-keys" element={<ApiKeySection />} />
-            <Route path="/transactions" element={<Transactions />} />
-            <Route path="/settings/payment" element={<PaymentInterfaceSection />} />
-            <Route path="/webhooks" element={<WebhookSection />} />
-            <Route path="/settings" element={<Settings />} />
+            <Route path="/api-keys" element={
+              <PrivateRoute>
+                <ApiKeySection />
+              </PrivateRoute>
+            } />
+            <Route path="/transactions" element={
+              <PrivateRoute>
+                <Transactions />
+              </PrivateRoute>
+            } />
+            <Route path="/settings/payment" element={
+              <PrivateRoute>
+                <PaymentInterfaceSection />
+              </PrivateRoute>
+            } />
+            <Route path="/webhooks" element={
+              <PrivateRoute>
+                <WebhookSection />
+              </PrivateRoute>
+            } />
+            <Route path="/settings" element={
+              <PrivateRoute>
+                <Settings />
+              </PrivateRoute>
+            } />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

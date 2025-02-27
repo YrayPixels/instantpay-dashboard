@@ -6,8 +6,6 @@ import type { Database } from './types';
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-const SUPABASE_PUBLISHABLE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZxeWF1b2dia3R0aWN3cHpoZGFjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA1NDY5MzEsImV4cCI6MjA1NjEyMjkzMX0._Tl2BWw72g4WAjoNfWTbSd8-uaPU2mwduHhVzmz1rac";
-
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";
 

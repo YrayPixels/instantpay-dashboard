@@ -4,14 +4,9 @@ import { CreditCard, QrCode } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { toast } from "sonner";
 import DashboardLayout from "@/components/dashboard/DashboardLayout";
+import InstantPayDocs from "@/components/dashboard/DocsPage";
 
-declare global {
-  interface Window {
-    TokenPay: any;
-    solana: any;
-    solanaWeb3: any;
-  }
-}
+
 
 interface PaymentMethod {
   id: 'instant' | 'qr';
@@ -23,7 +18,7 @@ interface PaymentMethod {
 const paymentMethods: PaymentMethod[] = [
   {
     id: 'instant',
-    title: 'Instant Pay',
+    title: 'Instant Pay API',
     description: 'Direct payment processing for immediate transactions',
     icon: CreditCard,
   },
@@ -77,6 +72,14 @@ const PaymentInterfaceSection = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="py-5 h-[100vh] overflow-scroll">
+          {selectedMethod === "instant" ?
+            <InstantPayDocs />
+            :
+            <p>Coming soon!</p>
+          }
         </div>
       </Card>
     </DashboardLayout>
