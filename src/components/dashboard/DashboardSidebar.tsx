@@ -27,6 +27,7 @@ const menuItems = [
   { title: "Transactions", icon: BarChart3, url: "/transactions" },
   { title: "Payment Settings", icon: Wallet, url: "/settings/payment" },
   { title: "Webhooks", icon: Webhook, url: "/webhooks" },
+  { title: "Settings", icon: Settings, url: "/profile-settings" }
 ];
 
 export default function DashboardSidebar() {

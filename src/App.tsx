@@ -8,11 +8,12 @@ import { AuthProvider, useAuth } from "@/contexts/AuthContext";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
-import { Settings } from "lucide-react";
+
 import Transactions from "./pages/Transactions";
 import { ApiKeySection } from "./pages/ApiKeys";
 import { WebhookSection } from "./pages/Webhook";
 import PaymentInterfaceSection from "./pages/PaymentSettings";
+import Settings from "./pages/Settings";
 
 
 const PrivateRoute = ({ children }: { children: React.ReactNode }) => {
@@ -68,7 +69,7 @@ const App = () => (
                 <WebhookSection />
               </PrivateRoute>
             } />
-            <Route path="/settings" element={
+            <Route path="/profile-settings" element={
               <PrivateRoute>
                 <Settings />
               </PrivateRoute>

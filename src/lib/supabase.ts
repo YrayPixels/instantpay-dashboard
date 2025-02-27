@@ -153,3 +153,101 @@ export const paymentPreferencesQueries = {
     return data
   }
 }
+
+
+// Transaction queries
+export const transactionQueries = {
+  // Get all webhooks for the current user
+  getWebhooks: async () => {
+    const { data, error } = await supabase
+      .from('webhooks')
+      .select('*')
+      .order('created_at', { ascending: false })
+
+    if (error) throw error
+    return data
+  },
+  // Create a new webhook
+  createWebhook: async (url: string) => {
+
+    const { data, error } = await supabase
+      .from('webhooks')
+      .insert({ url, user_id: await getUserId(), is_active: true })
+      .select()
+      .single()
+
+    if (error) throw error
+    return data
+  },
+  // Update webhook status
+  updateWebhookStatus: async (id: string, isActive: boolean) => {
+    const { data, error } = await supabase
+      .from('webhooks')
+      .update({ is_active: isActive })
+      .eq('id', id)
+      .select()
+      .single()
+
+    if (error) throw error
+    return data
+  },
+  // Delete a webhook
+  deleteWebhook: async (id: string) => {
+    const { error } = await supabase
+      .from('webhooks')
+      .delete()
+      .eq('id', id)
+
+    if (error) throw error
+    return true;
+  }
+}
+
+
+// Merchant queries
+export const merchantQueries = {
+  // Get Merchant Address for User
+  getMerchantAddress: async () => {
+    const { data, error } = await supabase
+      .from('merchant_pay_info')
+      .select('*')
+      .single();
+
+    if (error) return false;
+    return data
+  },
+  // Create a new Merchant for the current user
+  createMerchantAddress: async (wallet_address: string) => {
+
+    const { data, error } = await supabase
+      .from('merchant_pay_info')
+      .insert({ wallet_address, user_id: await getUserId() })
+      .select()
+      .single()
+
+    if (error) throw error
+    return data
+  },
+  // Update Merchant Address
+  updateMerchantAddress: async (id: string, wallet_address: string) => {
+    const { data, error } = await supabase
+      .from('merchant_pay_info')
+      .update({ wallet_address })
+      .eq('id', id)
+      .select()
+      .single()
+
+    if (error) throw error
+    return data
+  },
+  // Delete a Merchant Address
+  deleteMerchantAddress: async (id: string) => {
+    const { error } = await supabase
+      .from('merchant_pay_info')
+      .delete()
+      .eq('id', id)
+
+    if (error) throw error
+    return true;
+  }
+}
