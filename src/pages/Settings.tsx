@@ -115,7 +115,7 @@ const Settings = () => {
 
       <Card className="p-6 animate-fadeIn">
         <div className="flex flex-col justify-between items-start mb-6 space-y-4">
-          <h2 className="text-2xl font-semibold text-slate-800">Settlement Address</h2>
+          <h2 className="text-2xl font-semibold text-slate-800">Change your password</h2>
           <div className="flex w-full gap-2 mb-6">
             <Input
               placeholder={`${settlementAddress ? "Update Wallet Address" : "Enter wallet Address"}`}

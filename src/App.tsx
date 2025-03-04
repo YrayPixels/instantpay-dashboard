@@ -14,6 +14,7 @@ import { ApiKeySection } from "./pages/ApiKeys";
 import { WebhookSection } from "./pages/Webhook";
 import PaymentInterfaceSection from "./pages/PaymentSettings";
 import Settings from "./pages/Settings";
+import { News } from "./pages/News";
 
 
 const PrivateRoute = ({ children }: { children: React.ReactNode }) => {
@@ -49,6 +50,33 @@ const App = () => (
               }
             />
             <Route path="/login" element={<Login />} />
+            <Route path="/home-settings" element={
+              <PrivateRoute>
+                <News />
+              </PrivateRoute>
+            } />
+            <Route path="/news" element={
+              <PrivateRoute>
+                <News />
+              </PrivateRoute>
+            } />
+            <Route path="/chapters" element={
+              <PrivateRoute>
+                <News />
+              </PrivateRoute>
+            } />
+            <Route path="/gallery" element={
+              <PrivateRoute>
+                <News />
+              </PrivateRoute>
+            } />
+            <Route path="/members" element={
+              <PrivateRoute>
+                <News />
+              </PrivateRoute>
+            } />
+
+
             <Route path="/api-keys" element={
               <PrivateRoute>
                 <ApiKeySection />
