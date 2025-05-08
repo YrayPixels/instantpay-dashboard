@@ -1,7 +1,7 @@
 
 import { Card } from "@/components/ui/card";
 import DashboardLayout from "@/components/dashboard/DashboardLayout";
-import { ArrowUpRight, ChevronUp, DollarSign, Users } from "lucide-react";
+import { ArrowUpRight, ChevronUp, DollarSign, Notebook, PictureInPicture, Users } from "lucide-react";
 import {
   LineChart,
   Line,
@@ -23,22 +23,22 @@ const data = [
 
 const stats = [
   {
-    title: "Total Volume",
-    value: "$12,345",
-    change: "+12.5%",
-    icon: DollarSign,
-  },
-  {
-    title: "Active Users",
-    value: "1,234",
-    change: "+8.2%",
+    title: "Total Users",
+    value: "1",
+    change: "+100%",
     icon: Users,
   },
   {
-    title: "Success Rate",
+    title: "Total Posts",
+    value: "1,234",
+    change: "+8.2%",
+    icon: Notebook,
+  },
+  {
+    title: "Total Photos",
     value: "99.9%",
     change: "+0.1%",
-    icon: ArrowUpRight,
+    icon: PictureInPicture,
   },
 ];
 
@@ -49,13 +49,13 @@ export default function Index() {
         <div>
           <h1 className="text-3xl font-bold">Welcome back!</h1>
           <p className="text-muted-foreground">
-            Here's what's happening with your merchant account today.
+            Manage Your Admin Dashboard Today.
           </p>
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
           {stats.map((stat) => (
-            <Card key={stat.title} className="p-6 hover-card">
+            <Card key={stat.title} className="p-6 bg-main2 text-white hover-card">
               <div className="flex items-center justify-between">
                 <p className="text-sm font-medium text-muted-foreground">
                   {stat.title}
@@ -75,25 +75,11 @@ export default function Index() {
 
         <Card className="p-6">
           <div className="mb-4 flex flex-col space-y-2">
-            <h3 className="text-lg font-medium">Transaction Volume</h3>
-            <p className="text-sm text-muted-foreground">
-              Last 6 months of transaction volume
-            </p>
+            <h3 className="text-xl font-bold">Current Site Look</h3>
           </div>
-          <div className="h-[300px]">
+          <div className="h-screen">
             <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={data}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Line
-                  type="monotone"
-                  dataKey="value"
-                  stroke="hsl(var(--primary))"
-                  strokeWidth={2}
-                />
-              </LineChart>
+              <iframe src="https://shosa-eight.vercel.app/" ></iframe>
             </ResponsiveContainer>
           </div>
         </Card>

@@ -20,6 +20,9 @@ export default {
     },
     extend: {
       colors: {
+        main2: "#0a0a36",
+        accent2: "#f8943d",
+        accentdeep: "#C16718",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

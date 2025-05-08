@@ -11,7 +11,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 
 export default function Login() {
-  const [email, setEmail] = useState("test@instantpay.com");
+  const [email, setEmail] = useState("moseserhinyodavwe2@gmail.com");
   const [password, setPassword] = useState("12345678");
   const [loading, setLoading] = useState(false);
   const { signIn } = useAuth();
@@ -39,6 +39,7 @@ export default function Login() {
         email,
         password,
       });
+
       if (error) throw error;
       toast({
         title: "Account created!",
